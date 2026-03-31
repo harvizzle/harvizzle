@@ -1,0 +1,11 @@
+[PLACEHOLDER — List releases here, one per block.]
+
+Title: [release name]
+Type: [single / EP / album]
+Year: [year]
+Bandcamp: [URL]
+
+Title: [release name]
+Type: [single / EP / album]
+Year: [year]
+Bandcamp: [URL]

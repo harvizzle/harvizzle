@@ -1,0 +1,18 @@
+Project notes for harvizzle.com
+
+Aesthetic: minimal, white, serif, quiet, confident.
+No clutter. No trends. Music first.
+
+The site should feel like opening a book, not launching an app.
+
+Priorities:
+- Bandcamp embeds front and center on the Music page
+- Navigation is simple and always visible
+- No decorative elements unless they serve a clear purpose
+- If in doubt, remove it
+
+Future ideas (only if requested):
+- Press/quotes section
+- Tour dates
+- Mailing list (simple, no pop-ups)
+- Merch link

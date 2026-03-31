@@ -1,0 +1,17 @@
+[PLACEHOLDER — Paste Bandcamp embed codes here, one per block.]
+
+To get an embed code from Bandcamp:
+1. Go to your release page on Bandcamp
+2. Click the share/embed icon (below the player)
+3. Choose "Embed this album" or "Embed this track"
+4. Copy the iframe code
+5. Paste it below
+
+--- EMBED 1 ---
+[paste iframe here]
+
+--- EMBED 2 ---
+[paste iframe here]
+
+--- EMBED 3 ---
+[paste iframe here]
