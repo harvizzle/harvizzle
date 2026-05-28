@@ -1385,7 +1385,7 @@ nav a:hover,
   }
 }
 
-/* Final hover glow layer: keep this last. */
+/* Final hover glow layer. Mobile override follows it. */
 
 a:not(.release-buy):not(.contact-list a)::after {
   content: "";
@@ -1470,4 +1470,58 @@ nav a:hover,
 .contact-list a:focus-visible::after {
   opacity: 1;
   transition-duration: 120ms;
+}
+
+/* Final mobile override: keep after every desktop glow rule. */
+@media (max-width: 768px) {
+  body {
+    animation: none !important;
+  }
+
+  a::after,
+  .release::before,
+  .active-release-player::before,
+  .contact-list a::after {
+    display: none !important;
+  }
+
+  a:hover,
+  a:focus-visible,
+  nav a:hover,
+  .footer-home:hover,
+  .footer-links a:hover,
+  .about-links a:hover,
+  .contact-list a:hover,
+  .music-bottom-cta a:hover,
+  .home-platforms a:hover,
+  .cta-secondary:hover,
+  .release-buy:hover,
+  .cta-primary:hover,
+  .release:hover {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .platform-strip a:hover img,
+  .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover img,
+  .page-home .platform-strip a:hover .platform-icon,
+  .page-music .platform-strip a:hover img,
+  .page-music .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover .amazon-music-logo,
+  .page-music .platform-strip a:hover .amazon-music-logo,
+  .release:hover .bandcamp-embed,
+  .release:hover .release-label,
+  .release:hover .release-select-text,
+  .release.active .release-select-text {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    transform: none;
+  }
+
+  .active-release-player[hidden] {
+    display: none !important;
+  }
 }
