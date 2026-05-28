@@ -962,6 +962,92 @@ main {
   transition-duration: 120ms;
 }
 
+/* Mobile interaction cleanup: touch screens should not keep desktop hover glow. */
+@media (max-width: 768px) {
+  a::after,
+  .release::before,
+  .active-release-player::before,
+  .contact-list a::after {
+    display: none !important;
+  }
+
+  a:hover,
+  a:focus-visible,
+  nav a:hover,
+  .footer-home:hover,
+  .footer-links a:hover,
+  .about-links a:hover,
+  .contact-list a:hover,
+  .music-bottom-cta a:hover,
+  .home-platforms a:hover,
+  .cta-secondary:hover,
+  .release-buy:hover,
+  .cta-primary:hover {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .platform-strip a:hover img,
+  .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover img,
+  .page-home .platform-strip a:hover .platform-icon,
+  .page-music .platform-strip a:hover img,
+  .page-music .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover .amazon-music-logo,
+  .page-music .platform-strip a:hover .amazon-music-logo,
+  .release:hover .bandcamp-embed,
+  .release:hover .release-label,
+  .release:hover .release-select-text,
+  .release.active .release-select-text {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  a::after,
+  .release::before,
+  .active-release-player::before {
+    display: none !important;
+  }
+
+  a:hover,
+  a:focus-visible,
+  nav a:hover,
+  .footer-home:hover,
+  .footer-links a:hover,
+  .about-links a:hover,
+  .contact-list a:hover,
+  .music-bottom-cta a:hover,
+  .home-platforms a:hover,
+  .cta-secondary:hover,
+  .release-buy:hover,
+  .cta-primary:hover {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .platform-strip a:hover img,
+  .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover img,
+  .page-home .platform-strip a:hover .platform-icon,
+  .page-music .platform-strip a:hover img,
+  .page-music .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover .amazon-music-logo,
+  .page-music .platform-strip a:hover .amazon-music-logo,
+  .release:hover .bandcamp-embed,
+  .release:hover .release-label,
+  .release:hover .release-select-text,
+  .release.active .release-select-text {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
 .contact-list a:hover {
   color: var(--accent);
   text-shadow: 0 0 30px var(--accent-glow), 0 0 86px var(--accent-glow);
@@ -1042,6 +1128,17 @@ nav a:hover,
 /* --- RESPONSIVE --- */
 
 @media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-attachment: scroll, scroll, scroll;
+  }
+
   .site-header,
   nav,
   main,
@@ -1066,6 +1163,7 @@ nav a:hover,
 
   .streaming-section {
     margin-bottom: 3rem;
+    overflow: hidden;
   }
 
   .home-tagline {
@@ -1084,30 +1182,101 @@ nav a:hover,
 
   .releases {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
+  }
+
+  .release-selector {
+    display: block;
+  }
+
+  .release-selector .release {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .active-release-player {
+    margin: 0.75rem auto 1.75rem;
   }
 
   .music-header h2 {
     font-size: 2rem;
   }
 
+  .music-subtext {
+    max-width: none;
+    white-space: nowrap;
+    font-size: clamp(0.58rem, 2.7vw, 0.72rem);
+  }
+
   .platform-strip {
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 1.1rem 1.35rem;
-    max-width: 360px;
+    gap: clamp(0.42rem, 2vw, 0.72rem);
+    max-width: 100%;
     margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .platform-strip li,
   .platform-strip a {
-    width: 2.45rem;
-    height: 2.45rem;
+    width: clamp(1.45rem, 6.4vw, 1.9rem);
+    height: clamp(1.45rem, 6.4vw, 1.9rem);
+    flex: 0 0 auto;
   }
 
   .platform-strip img,
   .platform-icon {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: clamp(1.35rem, 6vw, 1.75rem);
+    height: clamp(1.35rem, 6vw, 1.75rem);
+  }
+
+  .signal-track {
+    animation-duration: 15.6s;
+  }
+
+  a::after,
+  .release::before,
+  .active-release-player::before {
+    display: none !important;
+  }
+
+  a:hover,
+  a:focus-visible,
+  nav a:hover,
+  .footer-home:hover,
+  .footer-links a:hover,
+  .about-links a:hover,
+  .contact-list a:hover,
+  .music-bottom-cta a:hover,
+  .home-platforms a:hover,
+  .cta-secondary:hover {
+    filter: none !important;
+    text-shadow: none !important;
+  }
+
+  .platform-strip a:hover img,
+  .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover img,
+  .page-home .platform-strip a:hover .platform-icon,
+  .page-music .platform-strip a:hover img,
+  .page-music .platform-strip a:hover .platform-icon,
+  .page-home .platform-strip a:hover .amazon-music-logo,
+  .page-music .platform-strip a:hover .amazon-music-logo {
+    transform: none;
+    filter: none !important;
+  }
+
+  .release:hover,
+  .release:hover .bandcamp-embed,
+  .release:hover .release-label,
+  .release:hover .release-select-text,
+  .release.active .release-select-text,
+  .release-buy:hover,
+  .cta-primary:hover {
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
 
   .email-form {
