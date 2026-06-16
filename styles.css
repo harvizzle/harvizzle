@@ -1472,10 +1472,45 @@ nav a:hover,
   transition-duration: 120ms;
 }
 
+/* Ko-fi floating donate widget */
+#kofi-widget-overlay,
+.floatingchat-container-wrap {
+  z-index: 20 !important;
+}
+
+.floatingchat-container-wrap {
+  right: clamp(0.9rem, 2vw, 1.35rem) !important;
+  bottom: clamp(0.9rem, 2vw, 1.35rem) !important;
+  transform: scale(0.9);
+  transform-origin: right bottom;
+  opacity: 0.9;
+  transition: opacity 180ms ease, filter 180ms ease, transform 180ms ease;
+}
+
+.floatingchat-container-wrap:hover,
+.floatingchat-container-wrap:focus-within {
+  opacity: 1;
+  filter: drop-shadow(0 0 18px var(--accent-hot)) drop-shadow(0 0 72px var(--accent-glow));
+  transform: scale(0.94);
+}
+
 /* Final mobile override: keep after every desktop glow rule. */
 @media (max-width: 768px) {
   body {
     animation: none !important;
+  }
+
+  .floatingchat-container-wrap {
+    right: 0.75rem !important;
+    bottom: 0.75rem !important;
+    transform: scale(0.82);
+    opacity: 0.88;
+  }
+
+  .floatingchat-container-wrap:hover,
+  .floatingchat-container-wrap:focus-within {
+    filter: none !important;
+    transform: scale(0.82);
   }
 
   a::after,

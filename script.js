@@ -68,3 +68,40 @@ if (mobileAlbumLayout.addEventListener) {
 } else if (mobileAlbumLayout.addListener) {
   mobileAlbumLayout.addListener(handleLayoutChange);
 }
+
+const loadKofiWidget = () => {
+  if (document.querySelector("[data-kofi-widget-script]")) return;
+
+  const script = document.createElement("script");
+  script.src = "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js";
+  script.async = true;
+  script.dataset.kofiWidgetScript = "true";
+  script.addEventListener("load", () => {
+    if (!window.kofiWidgetOverlay) return;
+
+    window.kofiWidgetOverlay.draw("harvizzle", {
+      type: "floating-chat",
+      "floating-chat.donateButton.text": "Donate",
+      "floating-chat.donateButton.background-color": "#151515",
+      "floating-chat.donateButton.text-color": "#ffffff"
+    });
+  });
+
+  document.body.appendChild(script);
+};
+
+const scheduleKofiWidget = () => {
+  if (!document.body) return;
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(loadKofiWidget, { timeout: 2500 });
+  } else {
+    window.setTimeout(loadKofiWidget, 1200);
+  }
+};
+
+if (document.readyState === "complete") {
+  scheduleKofiWidget();
+} else {
+  window.addEventListener("load", scheduleKofiWidget, { once: true });
+}
