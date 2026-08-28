@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Issue Templates — documentation and support</title>
+<meta name="description" content="Documentation and support for Simple Issue Templates, a Jira Cloud app that turns any issue, with its subtasks, into a reusable template.">
+<link rel="stylesheet" href="style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Simple Issue Templates</h1>
+  <p class="lede">Turn any Jira issue — with its subtasks — into a reusable template. No setup.</p>
+  <nav class="sub">
+    <a href="index.html">Documentation</a>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="mailto:support@harvizzle.com">Support</a>
+  </nav>
+</header>
+
+<h2>What it does</h2>
+<p>Jira gives you project templates. It does not give you issue templates. Teams that run the same
+checklist every week — onboarding, releases, incident response, client kick-offs — end up copying an
+old issue and rebuilding the subtasks by hand.</p>
+<p>This app saves an issue that is already set up the way you like, including its subtasks, and
+recreates it on demand.</p>
+
+<h2>Setting it up</h2>
+<p>There is no setup. Install the app and it appears on every issue.</p>
+
+<h2>Saving a template</h2>
+<ol>
+  <li>Open any issue that is arranged the way you want future issues to look.</li>
+  <li>In the <strong>Details</strong> sidebar on the right, expand <strong>Templates</strong>.</li>
+  <li>Optionally type a name. Leaving it blank uses the issue's summary.</li>
+  <li>Click <strong>Save as template</strong>.</li>
+</ol>
+<p>The template captures the summary, description, issue type, priority, labels, assignee, and every
+subtask with its own summary, description, and assignee.</p>
+
+<h2>Using a template</h2>
+<ol>
+  <li>Open any issue in the project you want the new issue created in.</li>
+  <li>Expand <strong>Templates</strong> in the Details sidebar.</li>
+  <li>Click <strong>Use</strong> next to the template.</li>
+</ol>
+<p>A new issue is created in that project, with all of the template's subtasks.</p>
+
+<h2>Managing templates</h2>
+<p>Go to <strong>Apps → Issue Templates</strong> to see every template on the site and delete any you
+no longer want. Templates are shared across the whole site, so a template saved by one person can be
+used by anyone with permission to create issues.</p>
+
+<h2>What this version does and does not do</h2>
+<p><strong>Included:</strong> summary, description, issue type, priority, labels, assignee, and
+subtasks with their own summaries, descriptions, and assignees.</p>
+<p><strong>Not included yet:</strong> custom fields, attachments, comments, linked issues, components,
+fix versions, and scheduled or automatic template application. These are on the roadmap. They are
+listed here so nobody installs the app expecting them.</p>
+
+<h2>Known behaviour</h2>
+<p>If a project has unassigned issues turned off, or a default assignee who lacks the Assignable User
+permission, the app retries creation with the person applying the template as the assignee rather
+than failing.</p>
+<p>If a subtask cannot be created — usually because the target project does not have the same subtask
+issue type — the parent issue is still created, and the app reports the exact reason for the subtask
+that failed.</p>
+
+<h2>Permissions the app requests</h2>
+<table>
+  <tr><th>Scope</th><th>Why it is needed</th></tr>
+  <tr><td><code>read:jira-work</code></td><td>Read the issue being saved, and its subtasks</td></tr>
+  <tr><td><code>write:jira-work</code></td><td>Create the issue and subtasks when a template is applied</td></tr>
+  <tr><td><code>read:jira-user</code></td><td>Resolve the current user when a project refuses unassigned issues</td></tr>
+  <tr><td><code>storage:app</code></td><td>Store templates in Atlassian-hosted Forge storage</td></tr>
+</table>
+
+<div class="note">
+  <p>The app acts on behalf of the signed-in user, so it can never read or create an issue that the
+  user could not read or create themselves.</p>
+</div>
+
+<h2>Support</h2>
+<p>Email <a href="mailto:support@harvizzle.com">support@harvizzle.com</a>. Target first response is
+two business days.</p>
+
+<footer>
+  Simple Issue Templates is built on Atlassian Forge and stores all data inside Atlassian's cloud.
+  See the <a href="privacy.html">privacy policy</a>.
+</footer>
+
+</div>
+</body>
+</html>
