@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulk Subtasks — privacy policy</title>
+<meta name="description" content="Privacy policy for Bulk Subtasks, a free Jira Cloud app built on Atlassian Forge.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Privacy policy</h1>
+<p class="lede">Bulk Subtasks &mdash; last updated 15 September 2026.</p>
+<nav class="sub">
+<a href="index.html">Documentation</a>
+<a href="privacy.html">Privacy policy</a>
+<a href="../templates/support.html">Support</a>
+</nav>
+</header>
+
+<h2>The short version</h2>
+<p><strong>The app stores nothing.</strong> It has no database, no storage permission, and makes no
+network calls to any server outside Atlassian. No data reaches harvizzle at any point.</p>
+
+<h2>What happens when you use it</h2>
+<p>The text you paste is sent to Jira's own API to create the subtasks, and is then gone. Nothing is
+written to app storage, because the app has no storage permission to write with &mdash; you can
+confirm this on the app's permissions screen at install time.</p>
+
+<h2>Personal data</h2>
+<p>None is stored. The app never copies, caches or retains an Atlassian account ID, name, email
+address or avatar. Because it holds no personal data, it has nothing to report under Atlassian's
+Personal Data Reporting API and nothing to erase when an account is closed.</p>
+
+<h2>Permissions and why they exist</h2>
+<ul>
+<li><strong>Read Jira work</strong> &mdash; to find the parent issue's project and its subtask issue type.</li>
+<li><strong>Write Jira work</strong> &mdash; to create the subtasks.</li>
+<li><strong>Read Jira user</strong> &mdash; used only when a project refuses unassigned issues, so the
+new subtasks can be assigned to you.</li>
+</ul>
+<p>Every action runs as the signed-in user, under that user's existing Jira permissions. The app
+cannot see or do anything you could not already do yourself.</p>
+
+<h2>Third parties, analytics and tracking</h2>
+<p>There are none. No analytics, no trackers, no advertising, no third-party services of any kind.</p>
+
+<h2>Uninstalling</h2>
+<p>Removing the app removes the panel. There is no stored data to delete, and subtasks you already
+created stay in Jira as ordinary issues.</p>
+
+<h2>Contact</h2>
+<p>Email <a href="mailto:support@harvizzle.com">support@harvizzle.com</a>.</p>
+
+<footer>
+Bulk Subtasks is built on Atlassian Forge and stores no data.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulk Subtasks — documentation</title>
+<meta name="description" content="Documentation for Bulk Subtasks, a free Jira Cloud app that turns a pasted list into subtasks.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Bulk Subtasks</h1>
+<p class="lede">Paste a list. Get subtasks. Free, forever.</p>
+<nav class="sub">
+<a href="index.html">Documentation</a>
+<a href="privacy.html">Privacy policy</a>
+<a href="../templates/support.html">Support</a>
+</nav>
+</header>
+
+<h2>What it does</h2>
+<p>Jira makes you create subtasks one at a time. Bulk Subtasks adds an <strong>Add subtasks</strong>
+panel to the issue's Details sidebar. Paste however many lines you have, press the button, and each
+line becomes a subtask of that issue.</p>
+
+<h2>Using it</h2>
+<ol>
+<li>Open any Jira issue that can have subtasks.</li>
+<li>Find <strong>Add subtasks</strong> in the Details panel on the right.</li>
+<li>Paste or type one subtask per line.</li>
+<li>Press <strong>Create subtasks</strong>.</li>
+</ol>
+<p>The panel reports what it did, for example <em>Created 3 subtasks. 1 duplicate line skipped.</em></p>
+
+<h2>What it cleans up for you</h2>
+<p>Lists get pasted out of meeting notes, Confluence pages, spreadsheets and chat, so they arrive
+with formatting attached. The app strips it before creating anything:</p>
+<ul>
+<li>bullet characters &mdash; <code>-</code>, <code>*</code>, <code>&bull;</code>, <code>&ndash;</code>, <code>&mdash;</code></li>
+<li>numbering &mdash; <code>1.</code>, <code>2)</code>, <code>3 -</code></li>
+<li>checkboxes &mdash; <code>[ ]</code>, <code>[x]</code>, at either end of the line</li>
+<li>blank lines, stray whitespace and Windows line endings</li>
+<li>duplicate lines, compared without regard to case</li>
+</ul>
+
+<h2>Limits</h2>
+<ul>
+<li><strong>50 subtasks</strong> per run. Paste the rest and run it again.</li>
+<li>Summaries longer than <strong>240 characters</strong> are trimmed.</li>
+<li>The issue must be of a type that allows subtasks. Subtasks themselves cannot have subtasks.</li>
+</ul>
+
+<h2>Who creates the subtasks</h2>
+<p>You do. The app acts as the signed-in user, so the subtasks carry your name and respect your
+project permissions. If a project refuses unassigned issues, the subtasks are assigned to you.</p>
+
+<h2>What it costs</h2>
+<p>Nothing. There is no paid tier, no trial and no user limit. It is built on Atlassian Forge, runs
+entirely inside Atlassian's cloud, and stores no data at all.</p>
+
+<h2>Support</h2>
+<p>See the <a href="../templates/support.html">support page</a>, or email
+<a href="mailto:support@harvizzle.com">support@harvizzle.com</a>.</p>
+
+<footer>
+Bulk Subtasks is built on Atlassian Forge and runs entirely inside Atlassian's cloud.
+</footer>
+
+</div>
+</body>
+</html>
