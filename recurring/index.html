@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Recurring Issues — documentation and support</title>
+<meta name="description" content="Documentation and support for Simple Recurring Issues, a Jira Cloud app that makes any issue repeat on a schedule, subtasks included.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Simple Recurring Issues</h1>
+<p class="lede">Make any Jira issue repeat — with its subtasks. Pick a day and an hour, not a cron expression.</p>
+<nav class="sub">
+<a href="index.html">Documentation</a>
+<a href="privacy.html">Privacy policy</a>
+<a href="#support">Support</a>
+</nav>
+</header>
+
+<div class="note">
+<p><strong>Support:</strong> email <a href="mailto:support@harvizzle.com">support@harvizzle.com</a>.
+Target first response is two business days. Please include your site URL and the issue key.</p>
+</div>
+
+<h2>What it does</h2>
+<p>Jira has no built-in way to make an issue repeat. Standups, weekly reports, release checklists and
+monthly reviews get recreated by hand, or cloned from last week's copy.</p>
+<p>This app takes an issue that is already set up the way you like and recreates it on a schedule you
+choose, with all of its subtasks.</p>
+
+<h2>Setting it up</h2>
+<p>There is no setup. Install the app and it appears on every issue.</p>
+
+<h2>Making an issue repeat</h2>
+<ol>
+<li>Open the issue you want to repeat.</li>
+<li>In the <strong>Details</strong> sidebar on the right, expand <strong>Repeat</strong>.</li>
+<li>Choose how often: every day, every weekday, every week on a chosen day, or every month on a
+chosen date.</li>
+<li>Choose the hour, and the timezone. The timezone is filled in from your own Jira profile.</li>
+<li>Click <strong>Start repeating</strong>.</li>
+</ol>
+<p>Each copy is created with the original's summary, description, issue type, priority, labels,
+assignee, and every subtask with its own summary, description and assignee.</p>
+
+<h2>Managing repeats</h2>
+<p>Go to <strong>Apps → Recurring Issues</strong> to see every repeat on the site, when each one next
+runs, and what it last created. Any repeat can be paused and resumed, or deleted. Repeats are shared
+across the site.</p>
+
+<h2>When it runs</h2>
+<p>The app checks once an hour. A repeat set for 09:00 is created during the 09:00 hour in the
+timezone you chose, not necessarily on the exact minute — Atlassian spreads scheduled work across the
+hour.</p>
+<p>Creating a repeat never creates an issue immediately. If you set up a 09:00 daily repeat at 09:30,
+the first copy appears the following day.</p>
+
+<h2>Timezones, daylight saving and month ends</h2>
+<p>Schedules are evaluated in the timezone you picked, so they do not drift when the clocks change.</p>
+<ul>
+<li>On the day the clocks go back, an hour occurs twice locally. A repeat set for that hour runs
+<strong>once</strong>, not twice.</li>
+<li>On the day the clocks go forward, an hour does not exist locally. A repeat set for that hour is
+skipped for that day rather than firing at the wrong time, and resumes normally the next day.</li>
+<li>A monthly repeat set for the 29th, 30th or 31st runs on the last day of shorter months, rather
+than silently skipping them.</li>
+</ul>
+
+<h2>Missed runs</h2>
+<p>If a run is missed — an outage, or the app being reinstalled — the app creates <strong>one</strong>
+catch-up issue rather than one for every missed slot, so a quiet period does not flood your backlog.</p>
+
+<h2>Who the issues are created by</h2>
+<p>Scheduled work in Jira runs without a signed-in person, so each recurring issue is created by the
+app itself. The <strong>Reporter</strong> on the created issue is shown as <em>Simple Recurring
+Issues</em>. The assignee is copied from the original issue.</p>
+
+<h2>What this version does and does not do</h2>
+<p><strong>Included:</strong> summary, description, issue type, priority, labels, assignee, and
+subtasks with their own summaries, descriptions and assignees. Pause, resume and delete.</p>
+<p><strong>Not included yet:</strong> custom fields, attachments, comments, linked issues, components,
+fix versions, repeats that stop after a set number of runs, and repeats on a specific minute. These
+are on the roadmap. They are listed here so nobody installs the app expecting them.</p>
+
+<h2>Permissions the app requests</h2>
+<table>
+<tr><th>Scope</th><th>Why it is needed</th></tr>
+<tr><td><code>read:jira-work</code></td><td>Read the issue being repeated, and its subtasks</td></tr>
+<tr><td><code>write:jira-work</code></td><td>Create each recurring issue and its subtasks</td></tr>
+<tr><td><code>read:jira-user</code></td><td>Resolve an assignee when a project refuses unassigned issues</td></tr>
+<tr><td><code>storage:app</code></td><td>Store schedules in Atlassian-hosted Forge storage</td></tr>
+</table>
+
+<h2 id="support">Support</h2>
+<p>Email <a href="mailto:support@harvizzle.com">support@harvizzle.com</a>. Target first response is
+two business days, Monday to Friday. Please include your Jira site URL, the issue key, and what you
+expected to happen.</p>
+<p>There is no separate support portal to sign up for, and no ticket number to chase.</p>
+
+<footer>
+Simple Recurring Issues is built on Atlassian Forge and stores all data inside Atlassian's cloud.
+See the <a href="privacy.html">privacy policy</a>.
+</footer>
+
+</div>
+</body>
+</html>
