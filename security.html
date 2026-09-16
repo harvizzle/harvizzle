@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>harvizzle — security policy and incident response</title>
+<meta name="description" content="Security policy, vulnerability reporting process and incident response plan for harvizzle's Atlassian Marketplace apps.">
+<link rel="stylesheet" href="templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Security policy</h1>
+<p class="lede">harvizzle &mdash; Atlassian Marketplace apps. Last updated 16 September 2026.</p>
+<nav class="sub">
+<a href="templates/support.html">Support</a>
+<a href="security.html">Security</a>
+<a href="mailto:harvizzle@gmail.com">Report an issue</a>
+</nav>
+</header>
+
+<h2>Scope</h2>
+<p>This policy covers every app published by harvizzle on the Atlassian Marketplace:
+<em>Simple Issue Templates</em>, <em>Simple Recurring Issues</em>, <em>Bulk Subtasks</em> and
+<em>Page Sign-off</em>.</p>
+
+<h2>Architecture, and why it shortens this document</h2>
+<p>Every app is built on <strong>Atlassian Forge</strong> and runs entirely inside Atlassian's own
+cloud. Specifically:</p>
+<ul>
+<li>There is <strong>no vendor server</strong>. No VM, no container, no database, no object store
+operated by harvizzle.</li>
+<li>Apps make <strong>no network calls to any host outside Atlassian</strong>. No external egress is
+declared in any manifest.</li>
+<li>Any data an app stores is held in <strong>Forge storage, inside Atlassian's cloud, scoped to the
+customer's own site</strong>, encrypted at rest by Atlassian. harvizzle cannot read it.</li>
+<li>Apps hold <strong>no API keys, tokens, passwords or shared secrets</strong>. Authorisation is
+Forge's own scoped tokens, issued and rotated by Atlassian.</li>
+<li>Most operations run <strong>as the signed-in user</strong>, under that user's existing product
+permissions, so an app cannot do anything the person using it could not already do.</li>
+</ul>
+<p>The practical effect is that the attack surface a customer's security team has to assess is the
+app's declared scopes and modules, both of which are visible on the install screen, and nothing else.</p>
+
+<h2>Reporting a vulnerability</h2>
+<p>Email <a href="mailto:harvizzle@gmail.com">harvizzle@gmail.com</a> with the subject line
+<strong>SECURITY</strong>, or raise it through Atlassian's Marketplace security channel.</p>
+<p>Please include the app name, the version, what you did, what happened, and what you expected.
+A proof of concept helps. Please do not test against another customer's site.</p>
+<p><strong>What happens next:</strong></p>
+<ul>
+<li><strong>Within 2 business days</strong> &mdash; acknowledgement, and a first assessment of
+severity.</li>
+<li><strong>Critical and high severity</strong> &mdash; investigation starts immediately and a fix is
+targeted within the timeframes set by Atlassian's Marketplace Bug Fix Policy.</li>
+<li><strong>Medium and low severity</strong> &mdash; scheduled into the next release.</li>
+<li>You will be told when a fix ships. Credit is given on request.</li>
+</ul>
+<p>Reports made in good faith will never be met with legal action.</p>
+
+<h2>Incident response plan</h2>
+<p>An incident is any confirmed or suspected compromise of an app, of the publishing account, or of
+customer data reachable through an app.</p>
+<ol>
+<li><strong>Triage &mdash; same day.</strong> Confirm the report, establish which apps and versions are
+affected, and assign a severity.</li>
+<li><strong>Contain.</strong> If an app version is actively dangerous, the offending version is
+withdrawn from the Marketplace and, where the risk warrants it, the app is disabled rather than left
+running.</li>
+<li><strong>Notify.</strong> Atlassian is notified through the Marketplace security incident process.
+Where customer data is implicated, affected site administrators are notified by email, following
+Atlassian's Security Incident Notification guidelines and any applicable legal deadline.</li>
+<li><strong>Fix and release.</strong> A patched version is deployed to the Forge production
+environment. Because Forge apps are versioned by Atlassian, customers receive the fix without having
+to install anything.</li>
+<li><strong>Review.</strong> Root cause is written up, a regression test is added to the app's test
+suite, and this policy is updated if the process itself failed.</li>
+</ol>
+
+<h2>Development practices</h2>
+<ul>
+<li>All app logic is covered by an automated unit test suite that must pass before deployment. Those
+suites cover the parts most likely to break safely-relevant behaviour, such as schedule calculation,
+input parsing and approval state.</li>
+<li>Dependencies are limited to Atlassian's own <code>@forge/*</code> packages. There is no
+third-party runtime dependency tree to audit.</li>
+<li>Every deployment runs <code>forge lint</code> plus a bundle-and-load smoke check, because a clean
+lint alone has been observed to pass code that cannot start.</li>
+<li>Apps request the narrowest scopes that make them work. <em>Bulk Subtasks</em>, for example, is
+published with no storage scope at all, because it stores nothing.</li>
+</ul>
+
+<h2>Personal data</h2>
+<p>Where an app stores personal data it is limited to Atlassian <strong>account IDs</strong>, never
+names, email addresses or profile details. Those apps implement Atlassian's Personal Data Reporting
+API and report weekly, erasing identifiers belonging to closed accounts. Each app's privacy policy
+states exactly what it holds:</p>
+<ul>
+<li><a href="recurring/privacy.html">Simple Recurring Issues</a></li>
+<li><a href="signoff/privacy.html">Page Sign-off</a></li>
+<li><a href="subtasks/privacy.html">Bulk Subtasks</a> &mdash; stores nothing</li>
+</ul>
+
+<h2>What this operation does not have</h2>
+<p>Stated plainly, so that no customer has to discover it during procurement. harvizzle is a
+one-person publisher. It does not hold ISO 27001, SOC 2, PCI or HIPAA certification, does not
+commission external penetration tests, and does not run a paid bug bounty. What it has instead is an
+architecture with no vendor-operated infrastructure to certify, which is why the questions those
+programmes exist to answer mostly do not arise.</p>
+
+<footer>
+harvizzle &mdash; every app runs on Atlassian Forge, inside Atlassian's cloud.
+</footer>
+
+</div>
+</body>
+</html>
