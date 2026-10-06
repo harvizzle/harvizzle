@@ -16,4 +16,44 @@
     <loc>https://harvizzle.com/contact.html</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://harvizzle.com/templates/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/recurring/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/subtasks/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/signoff/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/templates/support.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/templates/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/recurring/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/subtasks/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/signoff/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://harvizzle.com/security.html</loc>
+    <priority>0.4</priority>
+  </url>
 </urlset>
