@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to create multiple Jira subtasks at once - four ways</title>
+<meta name="description" content="Four ways to add many subtasks to a Jira work item at once: the built-in form, CSV import, an automation rule, or an app. What each one costs and where each one breaks.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>How to create multiple Jira subtasks at once</h1>
+<p class="lede">Four ways to do it, what each one costs, and where each one breaks.</p>
+<nav class="sub">
+<a href="../subtasks/index.html">Bulk Subtasks</a>
+<a href="../templates/support.html">Support</a>
+</nav>
+</header>
+
+<p>Jira creates subtasks one at a time. If you have a checklist of eight things sitting in a meeting
+note, there is no box to paste it into. This page lays out the four routes people actually use, with
+the limits of each, so you can pick the cheapest one that fits how often you need it.</p>
+
+<p><strong>Short version:</strong> for a handful, use the built-in form. For a one-off migration of
+hundreds, use CSV import. For something that should happen automatically on a trigger, use an
+automation rule and budget the steps. For a list you paste by hand on a regular basis, the built-in
+options are all a poor fit, and that is the gap apps fill.</p>
+
+<h2>1. The built-in subtask form</h2>
+<p>Open the work item, add a subtask, type a summary, save, repeat. Nothing to set up and nothing to
+pay for.</p>
+<p>It is fine for three or four. It stops being fine at ten, because every subtask is a separate
+round trip through a form, and nothing is pasted - it is all retyped by hand from wherever the list
+already exists.</p>
+
+<h2>2. CSV import</h2>
+<p>Jira's CSV importer can create parents and their children in one pass. Atlassian's documentation
+sets out what the file needs: columns for <code>Work item ID</code>, <code>Work type</code> and
+<code>Parent</code>, plus a Summary, and the rule that <em>"the parent work items must appear before
+their subtasks or child work items in the file"</em>. You also have to make sure the parent keys you
+reference actually exist.</p>
+<p>Two practical catches. First, you start the import from Jira administration - the documentation
+says to <em>"log into your Jira Cloud site as a Jira administrator to start the import process"</em>,
+so this is not something most team members can run for themselves. Second, building the file is real
+work: for a one-off migration of several hundred items that effort pays for itself immediately, and
+for eight subtasks on a Tuesday afternoon it never does.</p>
+
+<h2>3. An automation rule</h2>
+<p>A rule can create subtasks when something happens - a transition, a new work item of a given type,
+a schedule. This is the right tool when the subtasks are <em>predictable</em>: the same checklist
+every time a release ticket is created, for example.</p>
+<p>Two things to know before you design around it.</p>
+<p><strong>Automation is metered in steps, not in rules.</strong> Atlassian counts
+<em>"a single executed part of an automation flow, including triggers, conditions, actions, branches,
+and loops"</em> as one step, and the monthly allowance is pooled at the organisation level: 150 on
+Free, 400 per user on Standard, 750 per user on Premium, 1,000 per user on Enterprise. A rule that
+creates a parent plus five subtasks is not one step - it is the trigger, the create, and each child,
+every single time it fires. Dozens of such rules add up faster than people expect.</p>
+<p><strong>There is a separate service rate limit.</strong> It is not the same thing as your monthly
+allowance, which is why a rule can be throttled while your monthly usage sits at a fraction of a
+percent. Teams generating subtasks across hundreds of parents in one burst have reported Automation
+starting to fail partway through with a rate-limit error in the audit log. If you are doing something
+that large, spread it over time or batch it rather than firing it all at once.</p>
+
+<h2>4. An app</h2>
+<p>The gap none of the above fills is the common one: a list that already exists somewhere, that you
+want to paste in now, on this work item, without writing a CSV or a rule. Several Marketplace apps
+cover it, free and paid.</p>
+<p><em>Disclosure: I build one of them.</em>
+<a href="../subtasks/index.html">Bulk Subtasks</a> adds a panel to the work item, you paste one line
+per subtask, and it creates them - stripping bullets, numbering, checkbox markers, blank lines and
+duplicates first, because lists pasted out of notes and spreadsheets arrive with formatting attached.
+It is free with no user limit, runs entirely on Atlassian Forge, and stores nothing. It is capped at
+50 subtasks per run, so it is not the answer for a several-hundred-item migration - that is still a
+CSV import job.</p>
+
+<h2>Which one to pick</h2>
+<ul>
+<li><strong>Three or four subtasks, once:</strong> the built-in form.</li>
+<li><strong>Hundreds, once, and you have admin:</strong> CSV import.</li>
+<li><strong>The same set every time something happens:</strong> an automation rule, with the step
+cost priced in.</li>
+<li><strong>A different list every week, pasted by a person:</strong> an app.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li>Atlassian, <em>Import data from a CSV file</em> - required columns and parent ordering.</li>
+<li>Atlassian, <em>How is my usage calculated</em> - the definition of an automation step and the
+per-plan monthly allowances.</li>
+</ul>
+
+<footer>
+Written by harvizzle, who builds small Atlassian apps that do one job and need no configuration.
+</footer>
+
+</div>
+</body>
+</html>
