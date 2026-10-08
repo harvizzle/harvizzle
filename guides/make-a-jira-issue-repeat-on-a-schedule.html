@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to make a Jira issue repeat on a schedule</title>
+<meta name="description" content="Jira's built-in recurrence, an automation rule, or an app - how to make a work item repeat daily, weekly or monthly, what each costs, and the six things the built-in option silently drops.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>How to make a Jira issue repeat on a schedule</h1>
+<p class="lede">Three ways to do it, and the six things the built-in option quietly leaves behind.</p>
+<nav class="sub">
+<a href="../recurring/index.html">Simple Recurring Issues</a>
+<a href="../templates/support.html">Support</a>
+</nav>
+</header>
+
+<p>Recurring work is the most ordinary thing a team has - the weekly report, the monthly access
+review, the quarterly backup test - and Jira handles it less gracefully than you would expect. Here
+are the three routes, with the catch in each.</p>
+
+<h2>1. The built-in recurrence</h2>
+<p>Open the work item, click the lightning bolt for <strong>Automation</strong>, or click the
+<strong>Due date</strong> field, and choose <strong>Set to recur</strong>. You pick a schedule, a
+trigger and an expiry date.</p>
+<p>It is free and takes about thirty seconds. Two things are worth knowing before you rely on it.</p>
+
+<p><strong>Where it goes afterwards.</strong> Setting recurrence creates a flow behind the scenes,
+which is why people often cannot find it again later. It is not on the work item. It lives in
+<strong>Project settings &rarr; Automation &rarr; Flows</strong>, filtered by the label
+<em>Recurring</em>, and that is also where you delete or disable it. Worth writing down somewhere
+before the person who set it up leaves and nobody can work out where the weekly tickets come from.</p>
+
+<p><strong>What it does not copy.</strong> This is the one that bites. Atlassian's documentation is
+explicit that a recurring copy does <em>not</em> include attachments, web links, linked work items,
+Confluence pages, Confluence whiteboards, or Loom videos. Fields and child work items do come across.</p>
+<p>So if your recurring maintenance task is the one with the SOP attached, or the one linked to the
+runbook page, every copy after the first arrives stripped - and the person doing the work in month
+three has no idea anything is missing. They just do it from memory. Put the procedure in the
+description, or reference it from a field that survives, rather than attaching it to the item you set
+to recur.</p>
+
+<h2>2. An automation rule</h2>
+<p>A scheduled rule gives you far more control: conditions, branches, different work item types,
+subtasks created in a particular order. If the recurring thing is complicated, this is the right
+tool.</p>
+<p><strong>Budget the steps.</strong> Atlassian counts <em>"a single executed part of an automation
+flow, including triggers, conditions, actions, branches, and loops"</em> as one step, and the monthly
+allowance is pooled at the organisation level: 150 on Free, 400 per user on Standard, 750 per user on
+Premium, 1,000 per user on Enterprise. A rule that creates a parent plus five subtasks is not one
+step - it is the trigger, the create, and each child, every single time it fires. Forty weekly
+schedules shaped like that will eat a Free or small Standard allowance long before anyone connects
+the throttling to the maintenance calendar.</p>
+<p><strong>Mind the actor.</strong> The default flow actor in Jira automation is the user called
+<em>Automation for Jira</em>, so history and notifications attribute the creation to that rather than
+to a person. Usually that is what you want. If you change the actor to a specific human to make the
+audit trail read better, you have tied the schedule to that person's permissions, and Jira will tell
+you so with <em>"Either you or the rule actor for this rule is missing some required permissions"</em>
+- sometimes at save time, and sometimes much later when their access changes. That is a slow failure:
+the schedule stays switched on and simply stops producing anything.</p>
+
+<h2>3. An app</h2>
+<p>Apps in this category exist because the two options above sit at opposite extremes: one is a
+thirty-second toggle that drops half the content, the other is a rule builder you have to maintain
+and pay for in steps. Several Marketplace apps fill the middle.</p>
+<p><em>Disclosure: I build one of them.</em>
+<a href="../recurring/index.html">Simple Recurring Issues</a> adds a panel to the work item. You pick
+how often and at what hour in your own timezone - no cron expression and no rule builder - and it
+creates a fresh copy on that schedule with its subtasks. Each schedule shows its next run time and a
+history of what it has created, so you can confirm it is working rather than hope it is. It runs
+entirely on Atlassian Forge, so no issue data leaves your site, and it is free for sites of up to ten
+users.</p>
+
+<h2>Which to pick</h2>
+<ul>
+<li><strong>A simple item, nothing attached to it:</strong> the built-in recurrence. It is free and it
+is enough.</li>
+<li><strong>Complex logic, a handful of schedules:</strong> an automation rule, with the step cost
+priced in.</li>
+<li><strong>Many schedules, or structures that must arrive intact every time:</strong> an app.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li>Atlassian, <em>Schedule work items to recur using automations</em> - where the setting lives, how
+to remove it, and the list of what is not copied.</li>
+<li>Atlassian, <em>How is my usage calculated</em> - the definition of an automation step and the
+per-plan monthly allowances.</li>
+<li>Atlassian, <em>What is a flow actor?</em> - the default actor and how to change it.</li>
+</ul>
+
+<footer>
+Written by harvizzle, who builds small Atlassian apps that do one job and need no configuration.
+</footer>
+
+</div>
+</body>
+</html>
