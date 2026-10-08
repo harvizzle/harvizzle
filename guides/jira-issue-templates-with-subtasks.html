@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jira issue templates with subtasks - the options</title>
+<meta name="description" content="Jira has project templates but not issue templates. Cloning, automation rules, CSV import and apps compared - how to reuse a work item and its subtasks without rebuilding it every time.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Jira issue templates with subtasks</h1>
+<p class="lede">Jira gives you project templates. It does not give you work item templates. Here is what people use instead.</p>
+<nav class="sub">
+<a href="../templates/index.html">Simple Issue Templates</a>
+<a href="../templates/support.html">Support</a>
+</nav>
+</header>
+
+<p>Every team ends up with a shape of work they recreate constantly: the onboarding checklist, the
+release ticket with its six subtasks, the incident write-up. Jira will happily template a whole
+<em>project</em> for you. It has never shipped a way to save a single work item, with its children,
+as something you can stamp out again.</p>
+<p>So people reach for one of four things.</p>
+
+<h2>1. Clone the last one</h2>
+<p>The most common answer, and free. Find the most recent example, clone it, edit the parts that
+differ.</p>
+<p>What the clone dialog offers varies - the work item view is currently mid-rollout, so check what
+your site actually presents rather than trusting a blog post from two years ago. The structural
+problem is the same whatever the options say: you are copying a <em>specific past item</em>, not a
+clean template. It carries that item's status, its comments history in spirit if not in fact, its
+stale due dates, and whatever was half-finished about it. Teams that work this way slowly accumulate
+drift, because every new item is a copy of a copy.</p>
+<p>Fine for occasional use. Painful as a weekly habit.</p>
+
+<h2>2. An automation rule</h2>
+<p>A rule can create the parent and its children whenever a trigger fires - a work item type is
+created, a transition happens, a schedule comes round. This is genuinely the right tool when the
+structure is <em>fixed</em> and the trigger is <em>automatic</em>.</p>
+<p>Two caveats. First, the structure now lives in a rule, so changing the checklist means editing
+automation rather than editing a work item - that is fine for an admin and awkward for a team lead.
+Second, budget the steps: Atlassian counts <em>"a single executed part of an automation flow,
+including triggers, conditions, actions, branches, and loops"</em> as one step, pooled at the
+organisation level, with 150 a month on Free, 400 per user on Standard, 750 per user on Premium and
+1,000 per user on Enterprise. A parent plus five subtasks is not one step, it is seven or more, every
+time it fires.</p>
+
+<h2>3. CSV import</h2>
+<p>You can keep a CSV of the standard structure and import it when you need a new instance.
+Atlassian's documentation sets out the requirements: columns for <code>Work item ID</code>,
+<code>Work type</code> and <code>Parent</code>, and the rule that <em>"the parent work items must
+appear before their subtasks or child work items in the file"</em>. You also start the import from
+Jira administration - the docs say to <em>"log into your Jira Cloud site as a Jira administrator to
+start the import process"</em>.</p>
+<p>That last point usually ends the conversation. A template only works if the people who need it can
+use it, and most of them are not Jira admins.</p>
+
+<h2>4. An app</h2>
+<p>This is a crowded Marketplace category, which is itself the evidence: a dozen vendors would not be
+competing over a gap Jira had filled. The apps differ mostly in how much machinery they bring -
+variables, multi-level hierarchies, field mapping, post functions - and therefore in how much setup
+they demand before they do anything useful.</p>
+<p><em>Disclosure: I build one of them.</em>
+<a href="../templates/index.html">Simple Issue Templates</a> is at the small end on purpose. You open
+a work item that is already set up the way you like, save it as a template, and recreate it - with its
+subtasks - in one click. There is no configuration screen to fill in first. It runs entirely on
+Atlassian Forge, and it is free for sites of up to ten users.</p>
+<p>If you need variables, conditional fields or multi-level hierarchies, one of the larger apps in
+the category will serve you better, and you should buy that instead.</p>
+
+<h2>Which to pick</h2>
+<ul>
+<li><strong>Once a month, by one person:</strong> clone the last one.</li>
+<li><strong>Fixed structure, automatic trigger:</strong> an automation rule, with the step cost
+priced in.</li>
+<li><strong>Hundreds of items in one go:</strong> CSV import.</li>
+<li><strong>A structure a team recreates by hand, often:</strong> an app.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li>Atlassian, <em>How is my usage calculated</em> - the definition of an automation step and the
+per-plan monthly allowances.</li>
+<li>Atlassian, <em>Import data from a CSV file</em> - required columns, parent ordering, and who can
+run an import.</li>
+</ul>
+
+<footer>
+Written by harvizzle, who builds small Atlassian apps that do one job and need no configuration.
+</footer>
+
+</div>
+</body>
+</html>
