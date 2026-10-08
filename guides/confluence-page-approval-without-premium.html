@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confluence page approval without Premium</title>
+<meta name="description" content="Confluence's built-in approvals are Premium and Enterprise only. What you can do on Free and Standard, what page status does and does not give you, and when an app is worth it.">
+<link rel="stylesheet" href="../templates/style-shared.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Confluence page approval without Premium</h1>
+<p class="lede">What sign-off looks like on Free and Standard, where the built-in feature is not available.</p>
+<nav class="sub">
+<a href="../signoff/index.html">Page Sign-off</a>
+<a href="../templates/support.html">Support</a>
+</nav>
+</header>
+
+<p>If you have searched for how to get a Confluence page formally approved, you have probably found
+Atlassian's documentation for its approvals feature and then discovered it does nothing on your site.
+That is not a configuration mistake. The feature is gated by plan.</p>
+
+<h2>What Confluence actually ships</h2>
+<p>Atlassian's own documentation is unambiguous: <em>"Approvals are available only on Premium and
+Enterprise plans."</em> It also notes that <em>"Approvals are supported on pages, but not on live docs
+or blog posts."</em></p>
+<p>Where it is available, it is good. You start an approval from the content status menu, approvers
+respond from a banner below the byline, and the activity log records who was asked, who approved or
+requested changes, any comments and when. Space admins enable it under Status and approvals in space
+settings, and can optionally require approval before publishing. Required approvers are capped at
+five, and both requesting and responding need edit permission on the page.</p>
+<p>If you are on Premium or Enterprise, use it. Nothing below will beat a native feature you have
+already paid for.</p>
+
+<h2>What you get on Free and Standard</h2>
+<p>Two things, neither of which is really an approval.</p>
+<p><strong>Content status.</strong> You can label a page - rough draft, in progress, ready for review.
+It is useful and it is visible, but a status is a label, not a decision. Anyone with edit permission
+can set it, nothing records who set it or why, and nothing distinguishes "someone marked this
+approved" from "the right person approved it on the ninth of October".</p>
+<p><strong>Comments.</strong> The honest default for most teams. Someone writes "approved" in a
+comment and everyone moves on. It works until you need to answer the question an auditor,
+a customer or a new starter eventually asks: <em>who signed this off, and when?</em> Scrolling a
+comment thread is not an answer, and comments can be edited after the fact.</p>
+<p>There is no supported way to turn on the native approvals feature on Free or Standard. The choice
+on those plans is between living with status and comments, upgrading the whole site, or adding an
+app.</p>
+
+<h2>When an app is worth it</h2>
+<p>Weigh it against the alternative honestly. Upgrading an entire Confluence site from Standard to
+Premium to get approvals is a large per-user cost increase for one feature, and Premium includes a
+great deal you may not need. If approvals are the only thing you are missing, that is an expensive
+way to buy them.</p>
+<p><em>Disclosure: I build one of the apps in this space.</em>
+<a href="../signoff/index.html">Page Sign-off</a> puts an approval item in the page byline: request
+sign-off, choose how many approvals are needed, and approvers approve or request changes with a note.
+The decision and who made it are recorded on the page rather than in a comment thread. It works on
+any Confluence Cloud plan, including Free and Standard, it runs entirely on Atlassian Forge so no page
+content leaves your site, and it is free with no user limit.</p>
+<p>It is deliberately small. It does not do space-wide required approvers, approval before publishing,
+or multi-stage workflows - if you need those, that is what Premium's built-in feature and the larger
+paid apps are for.</p>
+
+<h2>Which to pick</h2>
+<ul>
+<li><strong>Premium or Enterprise:</strong> the built-in approvals feature.</li>
+<li><strong>Free or Standard, informal sign-off is genuinely fine:</strong> content status and a
+comment. Do not buy a solution to a problem you do not have.</li>
+<li><strong>Free or Standard, and you need a record of who approved what:</strong> an app.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li>Atlassian, <em>Request and manage approvals in Confluence</em> - plan requirement, supported
+content types, where approvals live, permissions, and the activity record.</li>
+<li>Atlassian, <em>Add a status to your content</em> - what content status is and is not.</li>
+</ul>
+
+<footer>
+Written by harvizzle, who builds small Atlassian apps that do one job and need no configuration.
+</footer>
+
+</div>
+</body>
+</html>
